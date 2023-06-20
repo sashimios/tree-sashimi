@@ -1,0 +1,9 @@
+abinfo "Create compatibility/transitional symlinks..."
+ln -sv libisl.so.23 \
+    "$PKGDIR"/usr/lib/libisl.so.15
+ln -sv libisl.so.23 \
+    "$PKGDIR"/usr/lib/libisl.so.19
+ln -sv libisl.so.23 \
+    "$PKGDIR"/usr/lib/libisl.so.21
+ln -sv libisl.so.23 \
+    "$PKGDIR"/usr/lib/libisl.so.22

@@ -1,0 +1,18 @@
+PKGNAME=bash
+PKGSEC=shells
+PKGDEP="glibc readline"
+PKGPROV="sh"
+PKGDES="Bourne Again SHell"
+
+# The following configuration:
+#
+# 1. Enables /usr/bin as the default installation directory for
+#    consistency with aosc-aaa.
+# 2. Enables Curses libraries;
+# 3. Enables Readline library links;
+# 4. Disables Bash malloc (uses implementation in GLibC);
+# 5. Enables installed readline libraries for extreme cases;
+AUTOTOOLS_AFTER="--bindir=/usr/bin --with-curses --enable-readline \
+                 --without-bash-malloc --with-installed-readline"
+AB_FLAGS_O3=1
+RECONF=0

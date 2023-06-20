@@ -1,0 +1,9 @@
+VER=2.36
+REL=4
+LOCALEGENVER=20160914
+SRCS="tbl::https://ftp.gnu.org/gnu/glibc/glibc-$VER.tar.xz \
+      https://github.com/AOSC-Dev/locale-gen/archive/refs/tags/v$LOCALEGENVER.tar.gz"
+CHKSUMS="sha256::1c959fea240906226062cb4b1e7ebce71a9f0e3c0836c09e7e3423d434fcfe75 \
+         sha256::230a7f526af060dbe596537fcd9baf839a4c86b8173ae6ee39c62f5eb8b76881"
+CHKUPDATE="anitya::id=5401"
+SUBDIR="glibc-$VER"

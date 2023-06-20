@@ -1,0 +1,33 @@
+abinfo "Creating version 5 symlinks..."
+for i in form panelw ncursesw ncurses++w menuw; do
+    ln -sv lib${i}.so.${NCURSES_SEMVER} \
+        "$PKGDIR"/usr/lib/lib${i}.so.5
+done
+ln -sv libmenuw.so.${NCURSES_SEMVER} \
+    "$PKGDIR"/usr/lib/libmenu.so.5
+ln -sv libformw.so.${NCURSES_SEMVER} \
+    "$PKGDIR"/usr/lib/libformw.so.5
+ln -sv libncursesw.so.${NCURSES_SEMVER}	\
+    "$PKGDIR"/usr/lib/libncurses.so.5
+
+for i in tinfo tic; do
+    abinfo "Creating compatibility symlinks for lib${i} ..."
+    ln -sv libncursesw.so.${NCURSES_SEMVER} \
+        "$PKGDIR"/usr/lib/lib${i}.so.${NCURSES_SEMVER%%.*}
+    ln -sv libncursesw.so.${NCURSES_SEMVER} \
+        "$PKGDIR"/usr/lib/lib${i}.so.5
+    ln -sv lib${i}.so.${NCURSES_SEMVER%%.*} \
+        "$PKGDIR"/usr/lib/lib${i}.so
+done
+
+abinfo "Creating symlinks for pkg-configs"
+for i in tinfo tic; do
+    abinfo "Creating pkg-config symlinks for lib${i} ..."
+    ln -sv ncursesw.pc "$PKGDIR"/usr/lib/pkgconfig/$i.pc
+done
+
+abinfo "Removing a file provided by fbterm..."
+rm -v "$PKGDIR"/usr/share/terminfo/f/fbterm
+
+abinfo "Removing files provided by alacritty..."
+rm -v "$PKGDIR"/usr/share/terminfo/a/alacritty*

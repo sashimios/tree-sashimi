@@ -1,0 +1,18 @@
+# Unset $ARCH as it is defined by Autobuild.
+export OLDARCH=$ARCH
+unset ARCH
+
+abinfo "Preparing directories..."
+mkdir -pv "$PKGDIR"/usr
+
+abinfo "Building and installing headers..."
+make mrproper
+make headers
+find "$SRCDIR"/usr/include \
+    -name '.*' -delete
+rm -v "$SRCDIR"/usr/include/Makefile
+cp -rv "$SRCDIR"/usr/include \
+    "$PKGDIR"/usr/
+
+# Then revert.
+export ARCH=$OLDARCH
