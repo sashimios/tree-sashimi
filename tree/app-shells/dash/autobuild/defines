@@ -1,0 +1,4 @@
+PKGNAME=dash
+PKGSEC=shells
+PKGDEP="glibc"
+PKGDES="A POSIX compliant shell that aims to be as small as possible"
