@@ -1,0 +1,4 @@
+abinfo "Installing a symlink, /etc/zsh/zprofile => /etc/profile ..."
+mkdir -pv "$PKGDIR"/etc/zsh
+ln -sv /etc/profile \
+    "$PKGDIR"/etc/zsh/zprofile
