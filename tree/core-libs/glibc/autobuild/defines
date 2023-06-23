@@ -41,7 +41,8 @@ AUTOTOOLS_AFTER="--libexecdir=/usr/lib \
                  --enable-obsolete-rpc \
                  --enable-bind-now \
                  --enable-stackguard-randomization \
-                 --enable-stack-protector=strong"
+                 --enable-stack-protector=strong \
+                 --disable-sanity-checks"
 
 NOSTATIC=0
 
