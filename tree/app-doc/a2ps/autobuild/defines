@@ -1,0 +1,12 @@
+PKGNAME=a2ps
+PKGSEC=doc
+PKGDEP="psutils imagemagick"
+BUILDDEP="gperf"
+PKGDES="Any 2 PostScript, a filter"
+
+AUTOTOOLS_AFTER="--sysconfdir=/etc/a2ps \
+                 --enable-nls \
+                 --with-medium=_glibc \
+                 --enable-kanji"
+RECONF=0
+ABSHADOW=0

@@ -1,0 +1,4 @@
+PKGNAME=rarian
+PKGDES="A documentation metadata library based on the proposed Freedesktop.org spec"
+PKGSEC=libs
+PKGDEP="glibc"

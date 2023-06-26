@@ -1,0 +1,10 @@
+PKGNAME=pcmciautils
+PKGSEC=utils
+PKGDEP="sysfsutils"
+PKGDES="Utilities for inserting and removing PCMCIA cards"
+
+NOPARALLEL=1
+
+ABTYPE=plainmake
+MAKE_AFTER="DEBUG=true \
+            prefix="

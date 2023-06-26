@@ -1,0 +1,6 @@
+PKGNAME=optipng
+PKGSEC=graphics
+PKGDEP="glibc libpng zlib"
+PKGDES="Compresses PNG files to a smaller size without losing any information"
+
+ABSHADOW=no

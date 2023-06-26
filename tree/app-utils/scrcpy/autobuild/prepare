@@ -1,0 +1,2 @@
+abinfo "Copying scrcpy-server to $SRCDIR..."
+cp -v "$SRCDIR"/../scrcpy-server "$SRCDIR"

@@ -1,0 +1,10 @@
+PKGNAME=mcfly
+PKGDES="Fly through your shell history"
+PKGDEP="glibc"
+BUILDDEP="rustc cargo llvm"
+PKGSEC="utils"
+
+ABSPLITDBG=0
+USECLANG=1
+USECLANG__MIPS64R6EL=0
+NOLTO__MIPS64R6EL=1

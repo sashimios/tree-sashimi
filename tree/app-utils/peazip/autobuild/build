@@ -1,0 +1,41 @@
+# Set ARCH_OPTS for lazbuild's compile
+if [[ "${CROSS:-$ARCH}" = "amd64" ]]; then
+    ARCH_OPTS="x86_64"
+elif [[ "${CROSS:-$ARCH}" = "arm64" ]]; then
+    ARCH_OPTS="aarch64"
+fi
+
+abinfo "Building PeaZip with Lazarus..."
+lazbuild \
+  --verbose \
+  --lazarusdir=/usr/share/lazarus \
+  --cpu=${ARCH_OPTS} \
+  --widgetset=qt5 \
+  --max-process-count=$(nproc --all) \
+  -B "${SRCDIR}/project_pea.lpi" "${SRCDIR}/project_peach.lpi"
+
+abinfo "Installing PeaZip..."
+
+install -v -Dm755 "${SRCDIR}/peazip" "${PKGDIR}/usr/lib/peazip/peazip"
+install -v -Dm755 "${SRCDIR}/pea" "${PKGDIR}/usr/lib/peazip/pea"
+install -v -Dm644 "${SRCDIR}/../peazip_help.pdf" "${PKGDIR}/usr/share/doc/peazip/peazip_help.pdf"
+install -v -Dm644 "${SRCDIR}/FreeDesktop_integration/peazip.png" "${PKGDIR}/usr/share/pixmaps/peazip.png"
+install -v -Dm644 "${SRCDIR}/FreeDesktop_integration/peazip.desktop" "${PKGDIR}/usr/share/applications/peazip.desktop"
+
+mkdir -v "${PKGDIR}/usr/bin" -p
+ln -sv ../lib/peazip/peazip "${PKGDIR}/usr/bin/peazip"
+ln -sv ../lib/peazip/pea "${PKGDIR}/usr/bin/pea"
+
+for i in 7z brotli zpaq zstd upx unrar unace
+do
+  mkdir -v "${PKGDIR}/usr/lib/peazip/res/$i" -p
+  ln -sv ../../../../bin/$i "${PKGDIR}/usr/lib/peazip/res/$i/$i"
+done
+
+abinfo "Installing PeaZip L10n Data..."
+install -v -Dm644 "${SRCDIR}/../peazip-${PKGVER}.about_translations/lang"/*.txt -t "${PKGDIR}/usr/lib/peazip/res/lang"
+
+abinfo "Installing KDE's Dolphin Integrations..."
+install -v -Dm644 \
+        "${SRCDIR}/FreeDesktop_integration/kde4-dolphin/usr/share/kde4/services/ServiceMenus"/*.desktop \
+        -t "${PKGDIR}/usr/share/kservices5/ServiceMenus"

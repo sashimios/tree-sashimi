@@ -1,0 +1,4 @@
+for util in dvi pdf ps rtf; do
+    abinfo "Creating symlink for db2$util => docbook2$util ..."
+    ln -sv docbook2$util "$PKGDIR"/usr/bin/db2$util
+done

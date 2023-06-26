@@ -1,0 +1,15 @@
+abinfo "Configuring catdoc ..."
+"$SRCDIR"/configure \
+    --prefix=/usr
+
+abinfo "Building catdoc ..."
+make
+
+abinfo "Installing catdoc ..."
+make install -j1 \
+    installroot="$PKGDIR" \
+    mandir=/usr/share/man/man1
+
+abinfo "Installing manpages ..."
+install -Dvm644 "$SRCDIR"/doc/*.1 \
+    -t "$PKGDIR"/usr/share/man/man1/

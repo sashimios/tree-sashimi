@@ -1,0 +1,9 @@
+abinfo "Building tree ..."
+make \
+    CC="gcc $CPPFLAGS $CFLAGS $LDFLAGS"
+
+abinfo "Installing tree ..."
+# Note: From the Makefile - DESTDIR=${PREFIX}/bin.
+make install \
+    PREFIX="$PKGDIR"/usr \
+    MANDIR="$PKGDIR"/usr/share/man/man1

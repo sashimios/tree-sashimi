@@ -1,0 +1,6 @@
+PKGNAME=dmidecode
+PKGSEC=utils
+PKGDEP="glibc"
+PKGDES="Desktop Management Interface table related utilities"
+
+MAKE_AFTER="prefix=/usr sbindir=/usr/bin"

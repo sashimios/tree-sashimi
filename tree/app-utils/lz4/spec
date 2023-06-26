@@ -1,0 +1,4 @@
+VER=1.9.4
+SRCS="tbl::https://github.com/lz4/lz4/archive/v$VER/lz4-$VER.tar.gz"
+CHKSUMS="sha256::0b0e3aa07c8c063ddf40b082bdf7e37a1562bda40a0ff5272957f3e987e0e54b"
+CHKUPDATE="anitya::id=1865"

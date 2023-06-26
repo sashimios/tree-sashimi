@@ -1,0 +1,2 @@
+abinfo "Renaming ChangeLog file ..."
+mv -v "$SRCDIR"/ChangeLog{.old,}

@@ -1,0 +1,4 @@
+PKGNAME=os-prober
+PKGDES="Utility to detect other operating systems on a set of drives"
+PKGSEC=utils
+PKGDEP="bash"

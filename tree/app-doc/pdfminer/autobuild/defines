@@ -1,0 +1,9 @@
+PKGNAME=pdfminer
+PKGSEC=doc
+PKGDEP="chardet six sortedcontainers"
+BUILDDEP="setuptools"
+PKGDES="Python PDF Parser"
+
+NOPYTHON2=1
+ABHOST=noarch
+ABTYPE=python

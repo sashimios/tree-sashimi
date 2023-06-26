@@ -1,0 +1,8 @@
+PKGNAME=gpm
+PKGDES="Mouse server for the console and xterm"
+PKGDEP="bash"
+PKGSEC=utils
+
+ABSHADOW=no
+
+AB_FLAGS_OS=1

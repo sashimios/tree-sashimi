@@ -1,0 +1,7 @@
+PKGNAME=rcm
+PKGSEC=utils
+PKGDEP="bash"
+BUILDDEP="mustache"
+PKGDES="Rc file (dotfiles) management"
+
+ABHOST=noarch

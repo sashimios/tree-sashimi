@@ -1,0 +1,1 @@
+PATH=./:$PATH make prefix="$PKGDIR"/usr install

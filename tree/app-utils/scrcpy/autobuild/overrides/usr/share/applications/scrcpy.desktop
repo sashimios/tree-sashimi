@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Icon=scrcpy
+Name=scrcpy
+Exec=/usr/libexec/scrcpy-launcher
+Terminal=false
+Hidden=false
+Categories=Development;Utility;
+Comment=Display and control your Android device

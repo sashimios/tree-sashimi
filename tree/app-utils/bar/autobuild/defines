@@ -1,0 +1,6 @@
+PKGNAME=bar
+PKGSEC=utils
+PKGDEP="bash"
+PKGDES="A script for showing progress bars"
+
+ABHOST=noarch

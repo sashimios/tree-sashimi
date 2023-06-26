@@ -1,0 +1,2 @@
+ln -sv eqn $PKGDIR/usr/bin/geqn
+ln -sv tbl $PKGDIR/usr/bin/gtbl

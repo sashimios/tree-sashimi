@@ -1,0 +1,8 @@
+PKGNAME=foomatic
+PKGSEC=libs
+PKGDEP="foomatic-db foomatic-db-engine foomatic-db-nonfree"
+PKGDES="Transitional meta package for Foomatic components"
+
+PKGEPOCH=1
+
+ABHOST=noarch

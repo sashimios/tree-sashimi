@@ -1,0 +1,4 @@
+PKGNAME=lzd
+PKGSEC=utils
+PKGDEP="glibc"
+PKGDES="An educational decompressor for the lzip format"

@@ -1,0 +1,4 @@
+PKGNAME=acpi
+PKGSEC=utils
+PKGDEP="glibc"
+PKGDES="Displays information about ACPI devices"

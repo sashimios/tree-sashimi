@@ -1,0 +1,4 @@
+PKGNAME=clzip
+PKGSEC=utils
+PKGDEP="glibc"
+PKGDES="C implementation of lzip"

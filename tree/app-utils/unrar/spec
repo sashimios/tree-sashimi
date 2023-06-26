@@ -1,0 +1,5 @@
+VER=6.2.2
+SRCS="tbl::http://www.rarlab.com/rar/unrarsrc-$VER.tar.gz"
+CHKSUMS="sha256::477d6ca7e246caec5412cc83b36c15a4ac837726a892df022919800129107cd5"
+CHKUPDATE="anitya::id=13306"
+SUBDIR=.

@@ -1,0 +1,9 @@
+PKGNAME=xdg-utils
+PKGDES="Command line tools that assist applications with a variety of desktop integration tasks"
+PKGEPOCH=3
+PKGDEP="x11-app"
+BUILDDEP="xmlto lynx docbook-xsl"
+PKGSEC=x11
+AUTOTOOLS_AFTER="--mandir=/usr/share/man"
+ABSHADOW=no
+ABHOST=noarch

@@ -1,0 +1,5 @@
+abinfo 'Setting $TMPDIR as $SRCDIR to prevent RAM depletion ...'
+export TMPDIR="$SRCDIR"
+
+abinfo "Removing bundled Cairo ..."
+rm -rv "$SRCDIR"/libs/cairo

@@ -1,0 +1,7 @@
+PKGNAME=docbook2x
+PKGSEC=doc
+PKGDEP="docbook-utils"
+PKGDES="Transitional package for DocBook-Utils"
+
+ABHOST=noarch
+PKGEPOCH=2

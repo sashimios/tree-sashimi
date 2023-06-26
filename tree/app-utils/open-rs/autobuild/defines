@@ -1,0 +1,12 @@
+PKGNAME="open-rs"
+PKGDES="Open a path or URL with the system-defined program"
+PKGDEP="xdg-utils glibc"
+BUILDDEP="rustc llvm"
+PKGSEC="utils"
+
+USECLANG=1
+
+# FIXME: LLVM crashes with debuginfo enabled.
+USECLANG__MIPS64R6EL=0
+NOLTO__MIPS64R6EL=1
+ABSPLITDBG__MIPS64R6EL=0

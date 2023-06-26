@@ -1,0 +1,4 @@
+PKGNAME=zathura-ps
+PKGSEC=doc
+PKGDEP="libspectre zathura"
+PKGDES="PostScript support for Zathura"

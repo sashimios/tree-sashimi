@@ -1,0 +1,6 @@
+PKGNAME=dunst
+PKGSEC=utils
+PKGDEP="dbus x11-lib libnotify gdk-pixbuf libxdg-basedir pango"
+PKGDES="Customizable and lightweight notification-daemon"
+
+MAKE_AFTER="X11INC=/usr/include/X11 X11LIB=/usr/lib/X11"

@@ -1,0 +1,9 @@
+PKGNAME=sysfsutils
+PKGSEC=utils
+PKGDEP="glibc hwdata"
+PKGDES="System utilities based on Sysfs"
+
+ABSHADOW=0
+AUTOTOOLS_AFTER="--disable-klibc \
+                 --disable-klibc-layout \
+                 --with-pci.ids=/usr/share/hwdata/pci.ids"

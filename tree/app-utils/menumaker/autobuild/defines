@@ -1,0 +1,9 @@
+PKGNAME=menumaker
+PKGSEC=x11
+PKGDEP="python-3"
+PKGDES="Heuristics-driven menu generator for Deskmenu, FluxBox, IceWM, OpenBox, WindowMaker and XFCE"
+
+ABHOST=noarch
+ABSHADOW=0
+NOPARALLEL=1
+AUTOTOOLS_AFTER="--infodir=/usr/share/info"

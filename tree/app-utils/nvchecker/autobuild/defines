@@ -1,0 +1,8 @@
+PKGNAME=nvchecker
+PKGSEC=utils
+PKGDEP="pycurl tornado structlog"
+BUILDDEP="setuptools"
+PKGDES="New version checker for software releases"
+
+NOPYTHON2=1
+ABHOST=noarch

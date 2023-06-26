@@ -1,0 +1,10 @@
+PKGNAME=wezterm
+PKGSEC=utils
+PKGDEP="glibc openssl xorg-server mesa"
+PKGDES="A GPU-accelerated cross-platform terminal emulator and multiplexer"
+BUILDDEP="rustc llvm"
+
+USECLANG=1
+FAIL_ARCH="!(amd64|arm64)"
+CARGO_AFTER="--no-default-features \
+             --features distro-defaults"

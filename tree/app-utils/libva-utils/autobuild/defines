@@ -1,0 +1,9 @@
+PKGNAME=libva-utils
+PKGSEC=utils
+PKGDEP="libdrm libva wayland"
+PKGDES="Utilities for the Video Acceleration API (VA-API)"
+
+ABTYPE=meson
+MESON_AFTER="-Ddrm=true \
+             -Dx11=true \
+             -Dwayland=true"

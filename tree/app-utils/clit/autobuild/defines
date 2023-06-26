@@ -1,0 +1,5 @@
+PKGNAME=clit
+PKGSEC=utils
+PKGDEP="glibc"
+BUILDDEP="libtommath"
+PKGDES="An extractor/converter for .LIT eBooks"

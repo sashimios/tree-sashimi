@@ -1,0 +1,10 @@
+abinfo "Moving /usr/sbin => /usr/bin ..."
+cp -av "$PKGDIR"/usr/{sbin/*,bin/}
+rm -rv "$PKGDIR"/usr/sbin
+
+abinfo "Removing completions shipped with bash-completions ..."
+rm -v "$PKGDIR"/usr/share/bash-completion/completions/{,u}mount
+rm -v "$PKGDIR"/usr/share/bash-completion/completions/rfkill
+
+abinfo "Removing files shipped with rfkill ..."
+rm -v "$PKGDIR"/usr/bin/rfkill

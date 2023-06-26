@@ -1,0 +1,10 @@
+PKGNAME=sysstat
+PKGSEC=utils
+PKGDEP="gnuplot lm-sensors tk"
+BUILDDEP="systemd"
+PKGDES="Performance monitoring tools for Linux"
+
+AUTOTOOLS_AFTER="--mandir=/usr/share/man \
+                 --enable-install-cron \
+                 --enable-copy-only"
+ABSHADOW=0

@@ -1,0 +1,5 @@
+PKGNAME=chrpath
+PKGSEC=utils
+PKGDES="A utility for changing rpath in ELF formatted files"
+PKGDEP="glibc"
+

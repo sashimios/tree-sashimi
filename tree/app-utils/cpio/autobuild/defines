@@ -1,0 +1,6 @@
+PKGNAME=cpio
+PKGSEC=utils
+PKGDEP="glibc"
+PKGDES="A GNU archiving program"
+
+ABSHADOW=0

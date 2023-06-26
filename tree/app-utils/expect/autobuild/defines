@@ -1,0 +1,7 @@
+PKGNAME=expect
+PKGSEC=utils
+PKGDEP="tcl"
+PKGDES="Tool for automating interactive applications"
+
+AUTOTOOLS_AFTER="--mandir=/usr/share/man"
+RECONF=0

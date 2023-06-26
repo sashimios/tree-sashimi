@@ -1,0 +1,4 @@
+PKGNAME=cabextract
+PKGDES="Microsoft cabinet file extractor"
+PKGSEC=utils
+PKGDEP=glibc

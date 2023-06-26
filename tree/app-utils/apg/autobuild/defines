@@ -1,0 +1,4 @@
+PKGNAME=apg
+PKGSEC=utils
+PKGDEP="glibc"
+PKGDES="Automated Password Generator"

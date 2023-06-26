@@ -1,0 +1,7 @@
+PKGNAME=lzo
+PKGDES="LZO compression library"
+PKGDEP="glibc"
+PKGSEC=utils
+AUTOTOOLS_AFTER="--enable-shared"
+
+AB_FLAGS_O3=1

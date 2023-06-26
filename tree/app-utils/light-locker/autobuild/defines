@@ -1,0 +1,16 @@
+PKGNAME=light-locker
+PKGSEC=x11
+PKGDEP="dbus-glib lightdm systemd gtk-3"
+BUILDDEP="intltool"
+PKGDES="A simple session-locker for lightdm"
+
+AUTOTOOLS_AFTER="--with-x \
+                 --with-dpms-ext \
+                 --with-mit-ext \
+                 --with-xf86gamma-ext \
+                 --with-systemd \
+                 --without-console-kit \
+                 --without-upower \
+                 --disable-schemas-compile \
+                 --enable-lock-on-suspend=on"
+RECONF=0

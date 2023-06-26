@@ -1,0 +1,4 @@
+PKGNAME=atop
+PKGSEC=admin
+PKGDEP="fcron ncurses"
+PKGDES="A system and process level monitor"

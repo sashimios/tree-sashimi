@@ -1,0 +1,20 @@
+# Adapted from Arch Linux.
+for ns in -nons ''; do
+    pkgroot="$PKGDIR/usr/share/xml/docbook/xsl-stylesheets-$PKGVER$ns"
+    dir=$PKGNAME$ns-$PKGVER
+
+    install -vDt "$pkgroot" -m644 "$dir"/VERSION{,.xsl}
+
+    (
+        shopt -s nullglob  # ignore missing files
+        for fn in assembly common eclipse epub epub3 fo \
+                  highlighting html htmlhelp javahelp lib manpages \
+                  params profiling roundtrip template website xhtml \
+                  xhtml-1_1 xhtml5; do
+            install -vDt "$pkgroot/$fn" \
+                -m644 "$dir"/"$fn"/*.{xml,xsl,dtd,ent}
+        done
+    )
+done
+
+install -vd "$PKGDIR"/etc/xml

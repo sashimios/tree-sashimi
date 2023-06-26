@@ -1,0 +1,30 @@
+# STRIP="true" below disables stripping at build-time, which prevents
+# -dbg package from being produced.
+
+abinfo "Building libunrar ..."
+make lib \
+    STRIP="true" \
+    -C "$SRCDIR"/libunrar
+
+abinfo "Building UnRAR ..."
+make \
+    STRIP="true" \
+    -C "$SRCDIR"/unrar
+
+abinfo "Installing unrar executable ..."
+install -Dvm755 "$SRCDIR"/unrar/unrar \
+    "$PKGDIR"/usr/bin/unrar
+
+abinfo "Installing libunrar shared library ..."
+install -Dvm755 "$SRCDIR"/libunrar/libunrar.so \
+    "$PKGDIR"/usr/lib/libunrar.so.$PKGVER
+
+abinfo "Creating compatibility symlinks for libunrar.so.$PKGVER ..."
+ln -sv libunrar.so.$PKGVER \
+    "$PKGDIR"/usr/lib/libunrar.so.5
+ln -sv libunrar.so.$PKGVER \
+    "$PKGDIR"/usr/lib/libunrar.so
+
+abinfo "Installing development header ..."
+install -Dvm644 "$SRCDIR"/libunrar/dll.hpp \
+    "$PKGDIR"/usr/include/unrar/dll.hpp

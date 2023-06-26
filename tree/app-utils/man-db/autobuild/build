@@ -1,0 +1,13 @@
+./configure ${AUTOTOOLS_DEF} \
+            --with-systemdtmpfilesdir=/usr/lib/tmpfiles.d \
+            --with-systemdsystemunitdir=/usr/lib/systemd/system \
+            --with-db=gdbm \
+	    --disable-setuid \
+            --enable-cache-owner=root \
+	    --enable-mandirs=GNU \
+	    --with-sections="1 n l 8 3 0 2 5 4 9 6 7"
+make
+make DESTDIR="$PKGDIR" install
+
+abinfo "Avoiding a DPKG warning ..."
+mkdir -pv "$PKGDIR"/var/cache/man

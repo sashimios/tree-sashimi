@@ -1,0 +1,7 @@
+PKGNAME=sharutils
+PKGSEC=utils
+PKGDEP="gettext perl texinfo"
+PKGDES="Utilities for creating shell-archives"
+
+AUTOTOOLS_AFTER="--disable-dependency-tracking"
+RECONF=0

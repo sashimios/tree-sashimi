@@ -1,0 +1,8 @@
+PKGNAME=autojump-rs
+PKGSEC=utils
+PKGDEP="gcc-runtime"
+BUILDDEP="cargo llvm"
+PKGDES="A cd command that learns"
+
+USECLANG=1
+PKGPROV=autojump

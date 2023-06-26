@@ -1,0 +1,7 @@
+PKGNAME=m4
+PKGDEP="libsigsegv"
+BUILDDEP="help2man"
+PKGDES="A macro processor"
+PKGSEC=utils
+
+RECONF=0

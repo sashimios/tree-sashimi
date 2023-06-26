@@ -1,0 +1,13 @@
+PKGNAME=tilix
+PKGSEC=utils
+PKGDEP="gtkd vte-gtk3 dconf gsettings-desktop-schemas gettext liblphobos librsvg"
+BUILDDEP="ldc po4a"
+PKGSUG="nautilus-python"
+PKGDES="A tiling terminal emulator"
+
+PKGBREAK="terminix<=1.5.0"
+PKGREP="terminix<=1.5.0"
+
+ABTYPE=meson
+
+PKGEPOCH=1

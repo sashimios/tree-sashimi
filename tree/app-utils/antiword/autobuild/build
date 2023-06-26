@@ -1,0 +1,11 @@
+abinfo "Fixing default installation directory in Makefile.Linux ..."
+sed -e "s|GLOBAL_INSTALL_DIR =.*|GLOBAL_INSTALL_DIR = /usr/bin|g" \
+    -i "$SRCDIR"/Makefile.Linux
+
+abinfo "Building Antiword ..."
+make OPT="$CFLAGS -DNDEBUG" LDFLAGS="$LDFLAGS"
+make global_install DESTDIR="$PKGDIR"
+
+abinfo "Installing manpage ..."
+install -Dvm644 Docs/antiword.1 \
+    "$PKGDIR"/usr/share/man/man1/antiword.1

@@ -1,0 +1,8 @@
+PKGNAME=enca
+PKGSEC=utils
+PKGDEP="recode"
+PKGDES="Charset analyzer and converter"
+
+AUTOTOOLS_AFTER="--with-librecode=/usr \
+                 --enable-external"
+ABSHADOW=0

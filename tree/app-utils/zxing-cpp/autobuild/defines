@@ -1,0 +1,6 @@
+PKGNAME=zxing-cpp
+PKGSEC=utils
+PKGDEP="gcc-runtime"
+PKGDES="A command-line tool for decoding QRCode"
+
+PKGEPOCH=1

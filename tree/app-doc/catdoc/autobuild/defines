@@ -1,0 +1,4 @@
+PKGNAME=catdoc
+PKGSEC=utils
+PKGDEP="glibc"
+PKGDES="A converter for Microsoft Word, Excel, PowerPoint and RTF Files to text"

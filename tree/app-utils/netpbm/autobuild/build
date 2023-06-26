@@ -1,0 +1,9 @@
+abinfo "Building netpbm ..."
+make CC="gcc ${CPPFLAGS} ${CFLAGS} ${LDFLAGS}" \
+     LDFLAGS="${LDFLAGS}"
+
+abinfo "Installing netpbm ..."
+make pkgdir="$PKGDIR"/usr \
+     PKGMANDIR=share/man \
+     install-run \
+     install-dev

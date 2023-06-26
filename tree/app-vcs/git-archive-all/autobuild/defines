@@ -1,0 +1,7 @@
+PKGNAME=git-archive-all
+PKGSEC=vcs
+PKGDEP="git python-3"
+PKGDES="A python script wrapper for git-archive"
+
+ABTYPE=python
+ABHOST=noarch

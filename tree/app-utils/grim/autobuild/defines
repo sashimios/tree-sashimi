@@ -1,0 +1,5 @@
+PKGNAME=grim
+PKGSEC=utils
+PKGDEP="wayland cairo libjpeg-turbo"
+BUILDDEP="wayland-protocols scdoc fish"
+PKGDES="A screenshot utility for Wayland"

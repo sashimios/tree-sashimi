@@ -1,0 +1,10 @@
+PKGNAME=debianutils
+PKGSEC=utils
+PKGDEP="bash"
+BUILDDEP="po4a"
+PKGDES="Handy utilities from Debian"
+
+ABSHADOW=0
+AUTOTOOLS_AFTER="--enable-largefile"
+
+PKGPROV="add-shell remove-shell"

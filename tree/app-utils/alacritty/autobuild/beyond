@@ -1,0 +1,35 @@
+abinfo "Installing .desktop entry ..."
+desktop-file-install -m 644 \
+     --dir "$PKGDIR"/usr/share/applications/ \
+     "$SRCDIR"/extra/linux/Alacritty.desktop
+
+abinfo "Installing Alacritty ..."
+install -Dvm755 "$SRCDIR"/target/release/alacritty "$PKGDIR"/usr/bin/alacritty
+
+abinfo "Installing documentation and metadata ..."
+install -Dvm644 "$SRCDIR"/extra/alacritty.man \
+    "$PKGDIR"/usr/share/man/man1/alacritty.1
+install -Dvm644 "$SRCDIR"/extra/linux/org.alacritty.Alacritty.appdata.xml \
+    "$PKGDIR"/usr/share/appdata/org.alacritty.Alacritty.appdata.xml
+
+abinfo "Installing example configuration ..."
+install -Dvm644 "$SRCDIR"/alacritty.yml \
+    "$PKGDIR"/usr/share/doc/alacritty/example/alacritty.yml
+
+abinfo "Installing shell completions ..."
+install -Dvm644 "$SRCDIR"/extra/completions/alacritty.bash \
+    "$PKGDIR"/usr/share/bash-completion/completions/alacritty
+install -Dvm644 "$SRCDIR"/extra/completions/_alacritty \
+    "$PKGDIR"/usr/share/zsh/site-functions/_alacritty
+install -Dvm644 "$SRCDIR"/extra/completions/alacritty.fish \
+    "$PKGDIR"/usr/share/fish/completions/alacritty.fish
+
+abinfo "Installing application icon ..."
+install -Dvm644 "$SRCDIR"/extra/logo/alacritty-term.svg \
+    "$PKGDIR"/usr/share/pixmaps/Alacritty.svg
+
+abinfo "Installing terminfo data ..."
+install -dvm755 "$PKGDIR"/usr/share/terminfo/a/
+tic -o "$PKGDIR"/usr/share/terminfo \
+    -xe alacritty,alacritty-direct,alacritty+common \
+    "$SRCDIR"/extra/alacritty.info

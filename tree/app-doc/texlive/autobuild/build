@@ -1,0 +1,97 @@
+abinfo "Phase 1. Build the texlive base runtime"
+if [[ "${CROSS:-$ARCH}" = ppc64* ]]; then
+    LUAJIT="--disable-luajittex \
+            --disable-mfluajit"
+fi
+if [[ "${CROSS:-$ARCH}" = riscv64 ]]; then
+    LUAJIT="--disable-luajittex --disable-luajithbtex \
+            --disable-mfluajit"
+fi
+
+# FIXME: LuaJIT fails to build on MIPS64.
+if ab_match_arch loongson3 || \
+   ab_match_arch mips64r6el; then
+    LUAJIT="--disable-luajittex \
+            --disable-luajithbtex \
+            --disable-mfluajit"
+fi
+
+mkdir "$SRCDIR"/build && cd "$SRCDIR"/build
+../configure			   \
+    ${AUTOTOOLS_DEF}               \
+    --disable-native-texlive-build \
+    --disable-dvisvgm              \
+    --with-system-cairo            \
+    --with-system-fontconfig       \
+    --with-system-freetype2        \
+    --with-system-gmp              \
+    --with-system-graphite2        \
+    --with-system-harfbuzz         \
+    --with-system-icu              \
+    --with-system-libgs            \
+    --with-system-libpaper         \
+    --with-system-libpng           \
+    --with-system-mpfr             \
+    --with-system-pixman           \
+    --with-system-poppler          \
+    --without-system-xpdf          \
+    --with-system-zlib             \
+    --with-banner-add=" / AOSC" ${LUAJIT} \
+    LIBS="-lgs"
+abinfo "Building TeX Live binaries..."
+make
+
+abinfo "Installing TeX Live binaries..."
+make install DESTDIR="$PKGDIR"
+abinfo "Creating symlinks to actual binaries.."
+make texlinks DESTDIR="$PKGDIR"
+
+cd ..
+
+abinfo "Phase 2. install texmf extras"
+tar -xf ../texlive-$PKGVER-texmf.tar.xz \
+    -C "$PKGDIR"/usr/share --strip-components=1
+
+abinfo "Phase 3. Install texmf configs into /etc"
+install -dv -m755 "$PKGDIR"/etc/texmf/web2c
+install -dv -m755 "$PKGDIR"/etc/texmf/chktex
+install -dv -m755 "$PKGDIR"/etc/texmf/dvips/config
+install -dv -m755 "$PKGDIR"/etc/texmf/dvipdfmx
+install -dv -m755 "$PKGDIR"/etc/texmf/tex/generic/config
+install -dv -m755 "$PKGDIR"/etc/texmf/tex/generic/tex-ini-files
+install -dv -m755 "$PKGDIR"/etc/texmf/ttf2pk
+install -dv -m755 "$PKGDIR"/etc/texmf/xdvi
+install -dv -m755 "$PKGDIR"/etc/fonts/conf.avail
+
+# Taken from archlinux texlive PKGBUILD
+abinfo "Copy config files to $TEXMFCONFIG tree..."
+cp -av "$PKGDIR"/usr/share/texmf-dist/chktex/chktexrc \
+    "$PKGDIR"/etc/texmf/chktex/
+cp -av "$PKGDIR"/usr/share/texmf-dist/web2c/mktex.cnf \
+    "$PKGDIR"/etc/texmf/web2c/
+cp -av "$PKGDIR"/usr/share/texmf-dist/web2c/updmap.cfg \
+    "$PKGDIR"/etc/texmf/web2c/
+cp -av "$PKGDIR"/usr/share/texmf-dist/web2c/fmtutil.cnf \
+    "$PKGDIR"/etc/texmf/web2c/
+cp -av "$PKGDIR"/usr/share/texmf-dist/dvips/config/config.ps \
+    "$PKGDIR"/etc/texmf/dvips/config/
+cp -av "$PKGDIR"/usr/share/texmf-dist/dvipdfmx/dvipdfmx.cfg \
+    "$PKGDIR"/etc/texmf/dvipdfmx/
+cp -av "$PKGDIR"/usr/share/texmf-dist/tex/generic/tex-ini-files/pdftexconfig.tex \
+    "$PKGDIR"/etc/texmf/tex/generic/tex-ini-files/
+cp -av "$PKGDIR"/usr/share/texmf-dist/tex/generic/config/language.dat \
+    "$PKGDIR"/etc/texmf/tex/generic/config/
+cp -av "$PKGDIR"/usr/share/texmf-dist/tex/generic/config/language.def \
+    "$PKGDIR"/etc/texmf/tex/generic/config/
+cp -av "$PKGDIR"/usr/share/texmf-dist/ttf2pk/ttf2pk.cfg \
+    "$PKGDIR"/etc/texmf/ttf2pk/
+cp -av "$PKGDIR"/usr/share/texmf-dist/xdvi/XDvi \
+    "$PKGDIR"/etc/texmf/xdvi/
+abinfo "Remove TL specific warnings in the language.{dat,def} files:"
+sed -i -e '/DO NOT EDIT/,+3 d' "$PKGDIR"/etc/texmf/tex/generic/config/language.*
+abinfo "Remove -dev engines from format lists, in order to supress warning during fmtutil-sys generation"
+sed -i '/-dev/d' "$PKGDIR"/etc/texmf/web2c/fmtutil.cnf
+
+abinfo "Phase 4. Perl hacks"
+mkdir -p "$PKGDIR"/usr/share/tlpkg
+cp -r texk/tests/TeXLive "$PKGDIR"/usr/share/tlpkg/

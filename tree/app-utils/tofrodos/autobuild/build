@@ -1,0 +1,11 @@
+abinfo "Building tofrodos ..."
+make \
+    CC="gcc ${CPPFLAGS} ${CFLAGS} ${LDFLAGS}"
+
+abinfo "Installing tofrodos ..."
+mkdir -pv "$PKGDIR"/usr/{bin,share/man/man1}
+make install \
+    BINDIR="$PKGDIR"/usr/bin \
+    MANDIR="$PKGDIR"/usr/share/man/man1
+make installman \
+    MANDIR="$PKGDIR"/usr/share/man/man1

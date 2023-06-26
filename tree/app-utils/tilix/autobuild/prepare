@@ -1,0 +1,3 @@
+abinfo "Unsetting flags for D compiler ..."
+# FIXME: Any way to pass Autobuild3 flags correctly?
+unset CFLAGS LDFLAGS

@@ -1,0 +1,7 @@
+PKGNAME=acpid
+PKGSEC=admin
+PKGDEP="perl"
+PKGDES="A daemon for delivering ACPi power management events with Netlink support"
+
+ABSHADOW=0
+AUTOTOOLS_AFTER="--enable-largefile"

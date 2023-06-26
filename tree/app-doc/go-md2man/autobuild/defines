@@ -1,0 +1,7 @@
+PKGNAME=go-md2man
+PKGSEC=doc
+PKGDEP="glibc"
+BUILDDEP="go"
+PKGDES="A markdown to manpage generator"
+
+ABSPLITDBG=0

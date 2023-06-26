@@ -1,0 +1,2 @@
+abinfo "Dropping headers ..."
+rm -rv "$PKGDIR"/usr/include

@@ -1,0 +1,6 @@
+PKGNAME=colordiff
+PKGSEC=utils
+PKGDEP="perl diffutils"
+PKGDES="Perl script wrapper for diff that produces the same output but with syntax highlighting"
+
+ABHOST=noarch

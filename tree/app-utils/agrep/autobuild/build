@@ -1,0 +1,3 @@
+make CC="gcc ${CPPFLAGS} ${CFLAGS} ${LDFLAGS}"
+install -Dm755 agrep "$PKGDIR"/usr/bin/agrep-isc
+install -Dm644 agrep.1 "$PKGDIR"/usr/share/man/man1/agrep.1

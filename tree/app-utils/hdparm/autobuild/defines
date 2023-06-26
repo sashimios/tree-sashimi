@@ -1,0 +1,4 @@
+PKGNAME=hdparm
+PKGSEC=utils
+PKGDEP="glibc"
+PKGDES="Tools for manipulating hard disk drive parameters"

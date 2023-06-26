@@ -1,0 +1,4 @@
+VER=0.5.2
+SRCS="tbl::https://pwmt.org/projects/zathura/download/zathura-$VER.tar.xz"
+CHKSUMS="sha256::c64ba7cb9facf2b1499b9dc929b6736c72c69f8062eed4f2940556c852256194"
+CHKUPDATE="anitya::id=5298"

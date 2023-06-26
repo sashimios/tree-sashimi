@@ -1,0 +1,4 @@
+VER=015
+SRCS="tbl::https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-$VER.tar.xz"
+CHKSUMS="sha256::c3b451bb1f4ff9f6356cac5a6956a9ac8e85d81651af56a29e689f94fa6fda6e"
+CHKUPDATE="anitya::id=5061"

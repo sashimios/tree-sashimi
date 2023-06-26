@@ -1,0 +1,8 @@
+PKGNAME=txt2tags
+PKGSEC=doc
+PKGDEP="python-3"
+BUILDDEP="setuptools"
+PKGDES="A text formatting and conversion tool"
+
+ABHOST=noarch
+NOPYTHON2=1

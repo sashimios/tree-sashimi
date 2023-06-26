@@ -1,0 +1,7 @@
+PKGNAME=zathura
+PKGSEC=doc
+PKGDEP="girara sqlite desktop-file-utils file"
+BUILDDEP="docutils sphinx appstream-glib bash-completion fish"
+PKGDES="A minimalistic document viewer"
+
+ABTYPE=meson

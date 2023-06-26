@@ -1,0 +1,8 @@
+abinfo "Building foo2zjs ..."
+make
+
+abinfo "Installing foo2zjs ..."
+make \
+    install \
+    install-hotplug-prog \
+    PREFIX="$PKGDIR"/usr

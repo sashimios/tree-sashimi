@@ -1,0 +1,26 @@
+abinfo "FIXME: nvm is not compatible with the \"PREFIX\" environment variable: currently set to \"/usr\" ..."
+unset PREFIX
+
+abinfo "Switching Node.js version to v14 ..."
+nvm install 16
+nvm use 16
+
+abinfo "Installing build dependency ..."
+yarn
+
+abinfo "Building code-server ..."
+yarn build
+yarn build:vscode
+yarn release
+cd "$SRCDIR"/release
+yarn --production
+cd "$SRCDIR"
+yarn release:standalone
+
+abinfo "Installing code-server ..."
+mkdir -pv "$PKGDIR"/usr/lib/code-server
+cp -avr "$SRCDIR"/release-standalone/* "$PKGDIR"/usr/lib/code-server
+
+abinfo "linking code-server to /usr/bin ..."
+mkdir -pv "$PKGDIR"/usr/bin
+ln -sv ../lib/code-server/bin/code-server "$PKGDIR"/usr/bin/code-server

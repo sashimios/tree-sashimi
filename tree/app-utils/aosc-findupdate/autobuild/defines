@@ -1,0 +1,10 @@
+PKGNAME=aosc-findupdate
+PKGSEC=utils
+PKGDES="AOSC package source updater"
+PKGDEP="glibc openssl"
+BUILDDEP="rustc llvm"
+
+USECLANG=1
+USECLANG__MIPS64R6EL=0
+NOLTO__MIPS64R6EL=1
+ABSPLITDBG__MIPS64R6EL=0

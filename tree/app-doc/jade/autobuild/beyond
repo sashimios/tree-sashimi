@@ -1,0 +1,23 @@
+abinfo "Installing manpages ..."
+make install-man DESTDIR="$PKGDIR"
+
+abinfo "Creating symlink jade => openjade ..."
+ln -sv openjade "$PKGDIR"/usr/bin/jade
+
+abinfo "Creating symlinks for shared objects ..."
+ln -sv /usr/lib/libogrove.so \
+    "$PKGDIR"/usr/lib/libgrove.so
+ln -sv /usr/lib/libospgrove.so \
+    "$PKGDIR"/usr/lib/libspgrove.so
+ln -sv /usr/lib/libostyle.so \
+    "$PKGDIR"/usr/lib/libstyle.so
+
+abinfo "Installing stylesheets ..."
+install -Dvm644 "$SRCDIR"/dsssl/{catalog,{dsssl,style-sheet,fot}.dtd} \
+    -t "$PKGDIR"/usr/share/sgml/openjade-$PKGVER/
+
+abinfo "Installing catalogs ..."
+mkdir -pv "$PKGDIR"/etc/sgml
+touch openjade-$PKGVER.soc
+ln -sv openjade-$PKGVER.soc \
+    "$PKGDIR"/etc/sgml/openjade.soc

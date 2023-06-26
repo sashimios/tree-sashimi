@@ -1,0 +1,11 @@
+PKGNAME=mupdf
+PKGSEC=doc
+PKGDEP="curl desktop-file-utils freetype libjpeg-turbo openssl openjpeg mesa glu jbig2dec"
+PKGDES="Lightweight PDF and XPS viewer"
+
+NOSTATIC=0
+ABTYPE=plainmake
+MAKE_AFTER="build=debug \
+            prefix=/usr \
+            DESTDIR=$PKGDIR"
+PKGEPOCH=1

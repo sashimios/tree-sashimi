@@ -1,0 +1,6 @@
+PKGNAME=pciutils
+PKGDES="PCI bus configuration space access library and tools"
+PKGDEP="glibc hwdata kmod"
+PKGSEC=utils
+
+PKGPROV="lspci"

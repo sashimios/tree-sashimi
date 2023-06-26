@@ -1,0 +1,18 @@
+abinfo "Installing configuration files ..."
+install -Dvm644 "$SRCDIR"/utils/mount/nfsmount.conf \
+    "$PKGDIR"/etc/nfsmount.conf
+install -Dvm644 "$SRCDIR"/nfs.conf \
+    "$PKGDIR"/etc/nfs.conf
+install -Dvm644 "$SRCDIR"/support/nfsidmap/idmapd.conf \
+    "$PKGDIR"/etc/idmapd.conf
+  
+abinfo "Installing systemd units ..."
+for i in "$SRCDIR"/systemd/{*.service,*.mount,*.target}; do
+    install -Dvm644 $i \
+        "$PKGDIR"/usr/lib/systemd/system/$(basename $i)
+done
+
+abinfo "Creating default directories ..."
+mkdir -v "$PKGDIR"/etc/exports.d
+mkdir -vm 555 "$PKGDIR"/var/lib/nfs/rpc_pipefs
+mkdir -v "$PKGDIR"/var/lib/nfs/v4recovery

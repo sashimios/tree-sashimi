@@ -1,0 +1,7 @@
+PKGNAME=setconf
+PKGSEC=utils
+PKGDEP="python-3"
+PKGDES="Utility for easily changing settings in configuration files"
+
+NOPYTHON2=1
+ABHOST=noarch

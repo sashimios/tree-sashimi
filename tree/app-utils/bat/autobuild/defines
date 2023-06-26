@@ -1,0 +1,10 @@
+PKGNAME=bat
+PKGDES="cat(1) clone with syntax highlighting and git integration"
+BUILDDEP="rustc llvm"
+PKGSEC="utils"
+
+USECLANG=1
+USECLANG__MIPS64R6EL=0
+NOLTO__RISCV64=1
+NOLTO__MIPS64R6EL=1
+ABSPLITDBG=0

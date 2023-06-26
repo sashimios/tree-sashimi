@@ -1,0 +1,6 @@
+PKGNAME=xiccd
+PKGSEC=utils
+PKGDEP="x11-lib glib colord"
+PKGDES="A color management daemon for displays, printers, etc."
+
+ABTYPE=autotools

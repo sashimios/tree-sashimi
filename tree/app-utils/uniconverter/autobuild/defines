@@ -1,0 +1,6 @@
+PKGNAME=uniconverter
+PKGSEC=utils
+PKGDEP=""
+PKGDES="Transitional package for uniconvertor"
+
+PKGEPOCH=1

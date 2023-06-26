@@ -1,0 +1,4 @@
+PKGNAME=btop
+PKGSEC=utils
+PKGDES="A terminal system resource and status monitor"
+PKGDEP="gcc-runtime"

@@ -1,0 +1,4 @@
+VER=7.0.1
+SRCS="tbl::https://ftp.gnu.org/gnu/texinfo/texinfo-$VER.tar.xz"
+CHKSUMS="sha256::bcd221fdb2d807a8a09938a0f8d5e010ebd2b58fca16075483d6fcb78db2c6b2"
+CHKUPDATE="anitya::id=4958"

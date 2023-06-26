@@ -1,0 +1,4 @@
+VER=3.3a
+SRCS="git::commit=tags/$VER::https://github.com/tmux/tmux"
+CHKSUMS="SKIP"
+CHKUPDATE="anitya::id=4980"

@@ -1,0 +1,38 @@
+abinfo "Building and installing Mercurial ..."
+python3 "$SRCDIR"/setup.py install \
+    --root="$PKGDIR" \
+    --optimize=1
+
+abinfo "Building documentation ..."
+make \
+    -C "$SRCDIR"/doc \
+    PYTHON=/usr/bin/python3
+
+abinfo "Installing man pages ..."
+install -Dvm644 "$SRCDIR"/doc/*.1 \
+    -t "$PKGDIR"/usr/share/man/man1/
+install -Dvm644 "$SRCDIR"/doc/*.5 \
+    -t "$PKGDIR"/usr/share/man/man5/
+
+abinfo "Installing hgk ..."
+install -Dvm755 "$SRCDIR"/contrib/hgk \
+    "$PKGDIR"/usr/bin/hgk
+
+abinfo "Installing shell completions ..."
+install -Dvm644 "$SRCDIR"/contrib/zsh_completion \
+    "$PKGDIR"/usr/share/zsh/site-functions/_hg
+install -Dvm644 "$SRCDIR"/contrib/bash_completion \
+    "$PKGDIR"/usr/share/bash-completion/completions/hg
+
+abinfo "Installing Emacs plugins ..."
+install -Dvm644 "$SRCDIR"/contrib/*.el \
+    -t "$PKGDIR"/usr/share/emacs/site-lisp/
+
+abinfo "Installing Vim plugins ..."
+install -Dvm644 "$SRCDIR"/contrib/vim/*.vim \
+    -t "$PKGDIR"/usr/share/vim/vimfiles/syntax/
+
+abinfo "Setting up CA certificate path ..."
+mkdir -pv "$PKGDIR"/etc/mercurial
+echo -e "\n[web]\ncacerts = /etc/ssl/ca-bundle.crt\n" \
+    >> "$PKGDIR"/etc/mercurial/hgrc

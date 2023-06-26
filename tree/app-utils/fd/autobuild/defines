@@ -1,0 +1,7 @@
+PKGNAME=fd
+PKGSEC="utils"
+BUILDDEP="rustc jemalloc"
+PKGDES="A simple, fast and user-friendly alternative to 'find'"
+
+NOLTO=1
+ABSPLITDBG=0

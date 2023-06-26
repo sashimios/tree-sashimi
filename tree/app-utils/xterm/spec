@@ -1,0 +1,4 @@
+VER=375
+SRCS="tbl::https://invisible-mirror.net/archives/xterm/xterm-$VER.tgz"
+CHKSUMS="sha256::302c59a2bf81e79c6a701525d778161a218d1239f21568d89e2bdd31c015217f"
+CHKUPDATE="anitya::id=5272"

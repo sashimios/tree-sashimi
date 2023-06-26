@@ -1,0 +1,5 @@
+PKGNAME=pixz
+PKGSEC=utils
+PKGDEP="libarchive"
+BUILDDEP="asciidoc"
+PKGDES="Parallel, indexed XZ compressor"

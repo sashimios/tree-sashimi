@@ -1,0 +1,7 @@
+abinfo 'Patching the CFLAGS in Makefile of libbz2.so...'
+sed -e 's/^CFLAGS=\(.*\)$/CFLAGS=\1 \$(BIGFILES)/g' \
+    -i "$SRCDIR"/Makefile-libbz2_so
+
+abinfo 'Replacing CFLAGS in Makefiles with what Autobuild3 defined...'
+sed -e "s|-O2|${CFLAGS}|g" -i "$SRCDIR"/Makefile
+sed -e "s|-O2|${CFLAGS}|g" -i "$SRCDIR"/Makefile-libbz2_so

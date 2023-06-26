@@ -1,0 +1,4 @@
+VER=1.16
+SRCS="tbl::https://dev.yorhel.nl/download/ncdu-$VER.tar.gz"
+CHKSUMS="sha256::2b915752a183fae014b5e5b1f0a135b4b408de7488c716e325217c2513980fd4"
+CHKUPDATE="anitya::id=6045"

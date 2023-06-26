@@ -1,0 +1,4 @@
+VER=1.34
+SRCS="tbl::https://ftp.gnu.org/gnu/tar/tar-$VER.tar.xz"
+CHKSUMS="sha256::63bebd26879c5e1eea4352f0d03c991f966aeb3ddeb3c7445c902568d5411d28"
+CHKUPDATE="anitya::id=4939"

@@ -1,0 +1,9 @@
+PKGNAME=code-server
+PKGDES="Run VS Code on a remote server"
+PKGSEC=utils
+BUILDDEP="yarn jq nvm"
+
+ABSTRIP=0
+
+# VSCode is currently not available for Loongson and POWER.
+FAIL_ARCH="!(amd64|arm64)"

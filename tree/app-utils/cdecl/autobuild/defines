@@ -1,0 +1,4 @@
+PKGNAME=cdecl
+PKGSEC=devel
+PKGDES="Turn English phrases to C or C++ declarations"
+PKGDEP="readline"

@@ -1,0 +1,6 @@
+PKGNAME=grc
+PKGSEC=utils
+PKGSEC="python"
+PKGDES="Generic colouriser"
+
+ABHOST=noarch

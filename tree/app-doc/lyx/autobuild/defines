@@ -1,0 +1,15 @@
+PKGNAME=lyx
+PKGSEC=tex
+PKGDEP="boost enchant file imagemagick mythes qt-4 texlive"
+PKGSUG="rcs"
+BUILDDEP="bc"
+PKGDES="An advanced WYSIWYM document processor & LaTeX front-end"
+
+AUTOTOOLS_AFTER="--without-included-boost \
+                 --with-enchant \
+                 --with-hunspell \
+                 QTDIR=/usr/lib/qt4 \
+                 MOC=/usr/lib/qt4/bin/moc"
+RECONF=0
+
+NOLTO__LOONGSON3=1
